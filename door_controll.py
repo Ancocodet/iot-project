@@ -18,8 +18,7 @@ def validate_id(id):
 try:
     while True:
         id, text = reader.read()
-        if validate_id(id):
-            client.publish_status()
+        client.publish_status(config.door['topic'], id, validate_id(id))
         time.sleep(config['timeout'])
 except KeyboardInterrupt:
     client.disconnect()
