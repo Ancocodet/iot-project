@@ -20,7 +20,7 @@ try:
         id, text = reader.read()
         client.publish_status(config.door['topic'], id, validate_id(id))
         print("Door request by: {} (state: {})".format(id, validate_id(id)))
-        time.sleep(config['timeout'])
+        time.sleep(config.door['timeout'])
 except KeyboardInterrupt:
     client.disconnect()
 finally:
