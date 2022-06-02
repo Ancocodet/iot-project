@@ -1,6 +1,6 @@
 {
   "broker": {
-    "hostname": "localhost",
+    "hostname": "172.30.140.211",
     "port": 1883,
     "clientname": "door1",
     "username": "pi",
@@ -9,8 +9,8 @@
     "qos": 0
   },
   "door": {
-    "topic": "door1",
+    "topic": "door",
     "timeout": 2,
-    "allowed": []
+    "allowed": [152635445872]
   }
 }

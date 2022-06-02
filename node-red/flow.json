@@ -1,0 +1,290 @@
+[
+    {
+        "id": "3611d7e0653105ba",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d53a2208c2fd0cf3",
+        "type": "mqtt in",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "topic": "door/request",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c2d22f0dfbfb97c8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 270,
+        "y": 240,
+        "wires": [
+            [
+                "7a24ebf302e96a36",
+                "31fa100f868cb989"
+            ]
+        ]
+    },
+    {
+        "id": "7a24ebf302e96a36",
+        "type": "debug",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "31fa100f868cb989",
+        "type": "json",
+        "z": "3611d7e0653105ba",
+        "name": "jsonresponse",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "9ead38e3d04323a2"
+            ]
+        ]
+    },
+    {
+        "id": "2e71eda7e992cdaa",
+        "type": "change",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 320,
+        "wires": [
+            [
+                "871cfeb79f50634f",
+                "bc210ae665debf34"
+            ]
+        ]
+    },
+    {
+        "id": "9ead38e3d04323a2",
+        "type": "switch",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "property": "payload.success",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "true"
+            },
+            {
+                "t": "false"
+            }
+        ],
+        "checkall": "false",
+        "repair": false,
+        "outputs": 2,
+        "x": 710,
+        "y": 480,
+        "wires": [
+            [
+                "2e71eda7e992cdaa"
+            ],
+            [
+                "290220c3ccf2388e"
+            ]
+        ]
+    },
+    {
+        "id": "290220c3ccf2388e",
+        "type": "change",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 940,
+        "y": 560,
+        "wires": [
+            [
+                "6a55a75cd0ab6f30",
+                "ea81e90e1eb92ccf"
+            ]
+        ]
+    },
+    {
+        "id": "871cfeb79f50634f",
+        "type": "rpi-gpio out",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1240,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "1157141aedab2c2c",
+        "type": "rpi-gpio out",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "pin": "4",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1480,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "bc210ae665debf34",
+        "type": "change",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1260,
+        "y": 320,
+        "wires": [
+            [
+                "1157141aedab2c2c"
+            ]
+        ]
+    },
+    {
+        "id": "ea81e90e1eb92ccf",
+        "type": "change",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1300,
+        "y": 560,
+        "wires": [
+            [
+                "11ed59dd85470b9e"
+            ]
+        ]
+    },
+    {
+        "id": "11ed59dd85470b9e",
+        "type": "rpi-gpio out",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "pin": "18",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1560,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6a55a75cd0ab6f30",
+        "type": "rpi-gpio out",
+        "z": "3611d7e0653105ba",
+        "name": "",
+        "pin": "4",
+        "set": true,
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 1280,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "c2d22f0dfbfb97c8",
+        "type": "mqtt-broker",
+        "name": "Localhost",
+        "broker": "172.30.140.211",
+        "port": "1883",
+        "clientid": "nodered",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]
